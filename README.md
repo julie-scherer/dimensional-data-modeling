@@ -8,7 +8,7 @@ This week is the code we'll be using for dimensional data modeling. It contains 
 -- This [tutorial](https://daily-dev-tips.com/posts/installing-postgresql-on-a-mac-with-homebrew/) is what I used
 - Window
 -- This [tutorial](https://www.sqlshack.com/how-to-install-postgresql-on-windows/) is what I used
-2. Use the data dump at the root of this directory and pg_restore to create a new database. 
+2. Use the data dump at the root of this directory and run this command. Make sure to replace <username> with your computer's username
 ```
 psql -U <username> postgres < data.dump
 ```
