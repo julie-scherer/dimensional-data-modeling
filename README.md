@@ -1,7 +1,5 @@
 # Week 1 Dimensional Data Modeling
-This is the repo that has all the queries and data for my Serious SQL video game training series!
-
-The portfolio project for these trainings is located at https://www.halogods.com
+This week is the code we'll be using for dimensional data modeling. It contains data for every NBA game and player for the last 15ish years!
 
 ## Base Data Model (getting started)
 
