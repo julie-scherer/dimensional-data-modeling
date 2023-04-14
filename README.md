@@ -8,6 +8,8 @@ This week is the code we'll be using for dimensional data modeling. It contains 
 -- This [tutorial](https://daily-dev-tips.com/posts/installing-postgresql-on-a-mac-with-homebrew/) is what I used
 - Window
 -- This [tutorial](https://www.sqlshack.com/how-to-install-postgresql-on-windows/) is what I used
+- [Docker bash script w/ make commands](#docker-bash-script-w-make-commands)
+- [Docker compose](#docker-compose-setup)
 2. Use the data dump at the root of this directory and run this command. Make sure to replace <username> with your computer's username
 ```
 psql -U <username> postgres < data.dump
@@ -83,6 +85,22 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
     Once you have filled in these properties, click "Test Connection" to make sure that DBeaver can connect to the database.
 
 3. If the test connection is successful, click "Finish" to save the connection. You should now be able to use DBeaver to manage your PostgreSQL database running in Docker.
+
+## Docker Compose Setup
+
+### Prerequisites
+ * [Install Docker](https://docs.docker.com/get-docker)
+ * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
+
+Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
+
+```bash
+cp example.env .env # Edit the password in this file if you want
+docker compose up -d
+docker exec -it postgres bash # This will create an interactive shell for you within docker
+psql -U ${POSTGRES_USER} ${POSTGRES_SCHEMA} < /bootcamp/data.dump
+```
+Congratulations :tada:! as long as your compose stack is running you should be able to connect to your data exploration tool now
 
 ## Docker Compose Setup
 
