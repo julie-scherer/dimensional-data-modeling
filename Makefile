@@ -1,24 +1,17 @@
+CONTAINER_NAME=my-postgres-container
+
 .PHONY: up
 up:
 	chmod +x setup.sh 
 	/bin/bash setup.sh
 
-.PHONY: run
-run:
-	docker exec -it my-postgres-container psql -U postgres
-
 .PHONY: start
 start:
-	docker start my-postgres-container
-
-.PHONY: stop
-stop:
-	docker stop my-postgres-container
-
-.PHONY: logs
-logs:
-	docker logs my-postgres-container
+	docker start ${CONTAINER_NAME}
+	docker exec -it ${CONTAINER_NAME} psql -U postgres
 
 .PHONY: down
 down:
-	docker rm my-postgres-container
+	docker stop ${CONTAINER_NAME}
+	docker rm ${CONTAINER_NAME}
+	docker rmi postgres

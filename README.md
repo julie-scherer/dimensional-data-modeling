@@ -3,6 +3,32 @@ This week is the code we'll be using for dimensional data modeling. It contains 
 
 ## Base Data Model (getting started)
 
+### My instructions
+
+Open a terminal and run the `make` commands below:
+
+```
+make up
+```
+_^this will run the `setup.sh` script, which will pull and run the latest postgres image in dockerhub, and execute the psql cmd using the `data.dump` file inside the docker container_
+
+```
+make start
+```
+
+_^this will start the postgres container and run the psql command in the docker container_
+
+```
+make down
+```
+
+_^this will stop the postgres container, delete it, and delete the image as well_
+
+
+------
+
+### Zach's instructions
+
 1. Install Postgres locally (Homebrew is really nice for installing on Mac)
 -  Mac
 -- This [tutorial](https://daily-dev-tips.com/posts/installing-postgresql-on-a-mac-with-homebrew/) is what I used

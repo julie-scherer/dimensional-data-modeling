@@ -1,16 +1,17 @@
 #!/bin/bash
 
+export CONTAINER_NAME='my-postgres-container'
+export PG_PASSWORD='secretpassword'
+
 docker pull postgres
 docker run \
-    --name my-postgres-container \
-    -e POSTGRES_PASSWORD=secretpassword \
+    --name ${CONTAINER_NAME} \
+    -e POSTGRES_PASSWORD=${CONTAINER_NAME} \
     -p 5432:5432 \
     -d postgres
-docker logs my-postgres-container
 
-docker exec -i my-postgres-container psql -U postgres < data.dump
+sleep 2
 
-# chmod +x setup.sh 
-# /bin/bash setup.sh
+docker exec -i ${CONTAINER_NAME} psql -U postgres < data.dump
 
-# docker exec -it my-postgres-container psql -U postgres
+# docker logs ${CONTAINER_NAME}
