@@ -72,7 +72,7 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
 
 2. In the "Connection Settings" window, set the following properties:
 
-    * **Host**: The IP address of the Docker container running the PostgreSQL instance. You can find this printed in the terminal from when you ran the `run-docker.sh` script. It will most likely be 0.0.0.0
+    * **Host**: The IP address of the Docker container running the PostgreSQL instance. You can find this printed in the terminal from when you ran the `run-docker.sh` script. It will most likely be `0.0.0.0` or `localhost`.
 
     * **Port**: The port that you exposed when you started the container. This should be the same as the `$CONTAINER_PORT` variable in your `.env` or `example.env` file.
 
@@ -85,38 +85,6 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
     Once you have filled in these properties, click "Test Connection" to make sure that DBeaver can connect to the database.
 
 3. If the test connection is successful, click "Finish" to save the connection. You should now be able to use DBeaver to manage your PostgreSQL database running in Docker.
-
-## Docker Compose Setup
-
-### Prerequisites
- * [Install Docker](https://docs.docker.com/get-docker)
- * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
-
-Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
-
-```bash
-cp example.env .env # Edit the password in this file if you want
-docker compose up -d
-docker exec -it postgres bash # This will create an interactive shell for you within docker
-psql -U ${POSTGRES_USER} ${POSTGRES_SCHEMA} < /bootcamp/data.dump
-```
-Congratulations :tada:! as long as your compose stack is running you should be able to connect to your data exploration tool now
-
-## Docker Compose Setup
-
-### Prerequisites
- * [Install Docker](https://docs.docker.com/get-docker)
- * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
-
-Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
-
-```bash
-cp example.env .env # Edit the password in this file if you want
-docker compose up -d
-docker exec -it postgres bash # This will create an interactive shell for you within docker
-psql -U ${POSTGRES_USER} ${POSTGRES_SCHEMA} < /bootcamp/data.dump
-```
-Congratulations :tada:! as long as your compose stack is running you should be able to connect to your data exploration tool now
 
 ## Docker Compose Setup
 
