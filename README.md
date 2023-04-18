@@ -16,11 +16,11 @@ Generally you will need (specific instructions below):
 -- You can skip step 3 if you use this method. 
 - [Docker compose](#docker-compose-setup) made by @sreeladas
 -- This allows you to use the interactive Postgres shell inside a Docker container (Terminal).
-2. Use the data dump at the root of this directory and run this command. Make sure to replace <username> with your computer's username
+2. Use the data dump at the root of this directory and run this command **if you didn't use either of the above Docker installations**. Make sure to replace <username> with your computer's username
 ```
 psql -U <username> postgres < data.dump
 ```
-3. Set up DataGrip to point at your locally running Postgres instance
+3. Set up [DataGrip](https://www.jetbrains.com/datagrip/buy/#discounts), [DBeaver](https://dbeaver.io/download/), or your [VS Code extension](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-postgresql-client2) to point at your locally running Postgres instance
 4. Have fun querying!
 
 ## :rocket: Run Dockerfile in Shell Script & Connect to DBeaver
@@ -99,7 +99,7 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
  * [Install Docker](https://docs.docker.com/get-docker)
  * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
 
-**Note:** This is an **alternative** to the setup above using [Dockerfile, bash and DBeaver](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver)
+**Note:** This is an **alternative** to the setup above using [Dockerfile, bash and DBeaver](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver). You do **not** need both setups. 
 
 Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
 
