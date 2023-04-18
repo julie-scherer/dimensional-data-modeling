@@ -13,9 +13,9 @@ Generally you will need (specific instructions below):
 - Windows
 -- This [tutorial](https://www.sqlshack.com/how-to-install-postgresql-on-windows/) is what I used
 - [Dockerfile + bash script](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver) made by @schererjulie
--- You can skip step 3 if you use this method. 
+-- You can skip step 2 if you use this method. 
 - [Docker compose](#docker-compose-setup) made by @sreeladas
--- This allows you to use the interactive Postgres shell inside a Docker container (Terminal).
+-- This allows you to use the interactive Postgres shell inside a Docker container (Terminal). You can skip step 2 if you use this method as well. You can also skip Step 3 if you are comfortable using just the shell.
 2. Use the data dump at the root of this directory and run this command **if you didn't use either of the above Docker installations**. Make sure to replace <username> with your computer's username
 ```
 psql -U <username> postgres < data.dump
