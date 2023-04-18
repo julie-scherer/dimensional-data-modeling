@@ -69,7 +69,9 @@ psql -U <username> postgres < data.dump
     # make down
     ```
 
-    &rarr; This will stop and remove the Docker container named `my-postgres-container`, and remove the Docker image named `postgres`.
+    &rarr; This will **stop and remove the Docker container** named `my-postgres-container`, and **remove the Docker image** named `postgres`. 
+
+    If you want to recreate the Docker image & start a new container, you will have to go back to Step 2 in this section.
 
 ### :electric_plug: Connecting to DBeaver
 
