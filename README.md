@@ -62,7 +62,7 @@ psql -U <username> postgres < data.dump
 
     &rarr; This will stop and remove the Docker container named `my-postgres-container`, and remove the Docker image named `postgres`.
 
-### :bulb: Connecting to DBeaver
+### :plug: Connecting to DBeaver
 
 To connect DBeaver to the Postgres instance running in Docker, you can follow these steps:
 
