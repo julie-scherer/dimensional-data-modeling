@@ -15,37 +15,89 @@ psql -U <username> postgres < data.dump
 3. Set up DataGrip to point at your locally running Postgres instance
 4. Have fun querying!
 
-## Docker Bash Script w/ Make Commands
+## :rocket: Run Dockerfile in Shell Script & Connect to DBeaver
 
-### Prerequisites 
-* [Install Docker](https://docs.docker.com/get-docker/)
-* Open Docker desktop to start the daemon
-
-Next, open a terminal, navigate to the project folder, and run the `make` commands below:
-
-1. **To run the `setup.sh` script:**
+### :information_source: Prerequisites 
+* [Docker](https://docs.docker.com/get-docker/) installed
+* Make installed (optional)
+* The instructions below assume you have an `.env` file in the root directory with the following environment variables defined. Otherwise, it will use the `example.env` file.
 
     ```
-    make up
+    DOCKER_CONTAINER=my-postgres-container
+    DOCKER_IMAGE=my-postgres-image
+    POSTGRES_USER=my-user
+    POSTGRES_PASSWORD=my-password
+    POSTGRES_DB=my-db
+    HOST_PORT=5432
+    CONTAINER_PORT=5432
     ```
 
-    &rarr; This will pull the latest postgres image from [Docker Hub](https://hub.docker.com/_/postgres), start a container named `my-postgres-container` using the `docker run` command, and then inside the docker container, execute the psql command with the `data.dump` file.
+### :pencil: Instructions
 
-2. **To start and run postgres locally:**
+1. Start the Docker daemon, open a terminal window, and navigate to the project root directory.
+
+2. Run the following commands to make the script file executable and run the script:
+    
+    ```
+    chmod +x scripts/run-docker.sh
+    ./scripts/run-docker.sh
+
+    # or, run this command if you have Make:
+    # make up
+    ```
+
+    &rarr; The `run-docker.sh` script will build a Docker image using the postgres image on [Docker Hub](https://hub.docker.com/_/postgres), start a new container from the image, and output the IP address and port number of the container. You can then use the IP address and port number to connect to the Postgres database in the container.
+
+
+3. When you are finished with the container, you can clean up Docker with the following commands:
 
     ```
-    make start
-    ```
+    docker stop my-postgres-container \
+    && docker rm my-postgres-container \
+    && docker rmi my-postgres-image
 
-    &rarr; This will first start the docker container and then execute the `psql` command inside the running container to connect to the postgres server as the `postgres` user.
-
-
-3. **To stop and clean container:**
-
-    ```
-    make down
+    # alternatively, if you have Make:
+    # make down
     ```
 
     &rarr; This will stop and remove the Docker container named `my-postgres-container`, and remove the Docker image named `postgres`.
+
+### :bulb: Connecting to DBeaver
+
+To connect DBeaver to the Postgres instance running in Docker, you can follow these steps:
+
+1. Open DBeaver and create a new PostgreSQL connection. In the "New Connection" window, select "PostgreSQL" and click "Next".
+
+2. In the "Connection Settings" window, set the following properties:
+
+    * **Host**: The IP address of the Docker container running the PostgreSQL instance. You can find this printed in the terminal from when you ran the `run-docker.sh` script. It will most likely be 0.0.0.0
+
+    * **Port**: The port that you exposed when you started the container. This should be the same as the `$CONTAINER_PORT` variable in your `.env` or `example.env` file.
+
+    * **Database**: The name of the database that you want to connect to. This should be the same as the `$POSTGRES_DB` variable in your `.env` or `example.env` file.
+
+    * **Username**: The username that you want to use to connect to the database. This should be the same as the `$POSTGRES_USER` variable in your `.env` or `example.env` file.
+
+    * **Password**: The password that you want to use to connect to the database. This should be the same as the `$POSTGRES_PASSWORD` variable in your `.env` or `example.env` file.
+
+    Once you have filled in these properties, click "Test Connection" to make sure that DBeaver can connect to the database.
+
+3. If the test connection is successful, click "Finish" to save the connection. You should now be able to use DBeaver to manage your PostgreSQL database running in Docker.
+
+## Docker Compose Setup
+
+### Prerequisites
+ * [Install Docker](https://docs.docker.com/get-docker)
+ * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
+
+Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
+
+```bash
+cp example.env .env # Edit the password in this file if you want
+docker compose up -d
+docker exec -it postgres bash # This will create an interactive shell for you within docker
+psql -U ${POSTGRES_USER} ${POSTGRES_SCHEMA} < /bootcamp/data.dump
+```
+Congratulations :tada:! as long as your compose stack is running you should be able to connect to your data exploration tool now
 
 ## Specific Trainings

@@ -1,17 +1,12 @@
-CONTAINER_NAME=my-postgres-container
+include example.env
 
 .PHONY: up
 up:
-	chmod +x setup.sh 
-	/bin/bash setup.sh
-
-.PHONY: start
-start:
-	docker start ${CONTAINER_NAME}
-	docker exec -it ${CONTAINER_NAME} psql -U postgres
+	chmod +x scripts/run-docker.sh
+	./scripts/run-docker.sh
 
 .PHONY: down
 down:
-	docker stop ${CONTAINER_NAME}
-	docker rm ${CONTAINER_NAME}
-	docker rmi postgres
+	docker stop my-postgres-container \
+    && docker rm my-postgres-container \
+    && docker rmi my-postgres-image
