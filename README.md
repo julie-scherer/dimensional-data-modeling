@@ -1,15 +1,21 @@
 # Week 1 Dimensional Data Modeling
 This week is the code we'll be using for dimensional data modeling. It contains data for every NBA game and player for the last 15ish years!
 
+Generally you will need (specific instructions below):
+- Postgres installed 
+- A database management environment (DataGrip, DBeaver, VS Code with extensions) that allows you to edit SQL & visualize tables
+
 ## Base Data Model (getting started)
 
 1. Install Postgres locally (Homebrew is really nice for installing on Mac)
 -  Mac
 -- This [tutorial](https://daily-dev-tips.com/posts/installing-postgresql-on-a-mac-with-homebrew/) is what I used
-- Window
+- Windows
 -- This [tutorial](https://www.sqlshack.com/how-to-install-postgresql-on-windows/) is what I used
-- [Dockerfile + bash script](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver)
-- [Docker compose](#docker-compose-setup)
+- [Dockerfile + bash script](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver) made by @schererjulie
+-- You can skip step 3 if you use this method. 
+- [Docker compose](#docker-compose-setup) made by @sreeladas
+-- This allows you to use the interactive Postgres shell inside a Docker container (Terminal).
 2. Use the data dump at the root of this directory and run this command. Make sure to replace <username> with your computer's username
 ```
 psql -U <username> postgres < data.dump
@@ -20,6 +26,7 @@ psql -U <username> postgres < data.dump
 ## :rocket: Run Dockerfile in Shell Script & Connect to DBeaver
 
 ### :information_source: Prerequisites 
+* [DBeaver](https://dbeaver.io/download/) installed
 * [Docker](https://docs.docker.com/get-docker/) installed
 * Make installed (optional)
 * The instructions below assume you have an `.env` file in the root directory with the following environment variables defined. Otherwise, it will use the `example.env` file.
@@ -91,6 +98,8 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
 ### Prerequisites
  * [Install Docker](https://docs.docker.com/get-docker)
  * [Install docker compose](https://docs.docker.com/compose/install/#installation-scenarios)
+
+**Note:** This is an **alternative** to the setup above using [Dockerfile, bash and DBeaver](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver)
 
 Once you have docker and docker compose installed, you can open a terminal in the directory where you cloned this repo and run:
 
