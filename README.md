@@ -3,32 +3,6 @@ This week is the code we'll be using for dimensional data modeling. It contains 
 
 ## Base Data Model (getting started)
 
-### My instructions
-
-Open a terminal and run the `make` commands below:
-
-```
-make up
-```
-_^this will run the `setup.sh` script, which will pull and run the latest postgres image in dockerhub, and execute the psql cmd using the `data.dump` file inside the docker container_
-
-```
-make start
-```
-
-_^this will start the postgres container and run the psql command in the docker container_
-
-```
-make down
-```
-
-_^this will stop the postgres container, delete it, and delete the image as well_
-
-
-------
-
-### Zach's instructions
-
 1. Install Postgres locally (Homebrew is really nice for installing on Mac)
 -  Mac
 -- This [tutorial](https://daily-dev-tips.com/posts/installing-postgresql-on-a-mac-with-homebrew/) is what I used
@@ -40,5 +14,38 @@ psql -U <username> postgres < data.dump
 ```
 3. Set up DataGrip to point at your locally running Postgres instance
 4. Have fun querying!
+
+## Docker Bash Script w/ Make Commands
+
+### Prerequisites 
+* [Install Docker](https://docs.docker.com/get-docker/)
+* Open Docker desktop to start the daemon
+
+Next, open a terminal, navigate to the project folder, and run the `make` commands below:
+
+1. **To run the `setup.sh` script:**
+
+    ```
+    make up
+    ```
+
+    &rarr; This will pull the latest postgres image from [Docker Hub](https://hub.docker.com/_/postgres), start a container named `my-postgres-container` using the `docker run` command, and then inside the docker container, execute the psql command with the `data.dump` file.
+
+2. **To start and run postgres locally:**
+
+    ```
+    make start
+    ```
+
+    &rarr; This will first start the docker container and then execute the `psql` command inside the running container to connect to the postgres server as the `postgres` user.
+
+
+3. **To stop and clean container:**
+
+    ```
+    make down
+    ```
+
+    &rarr; This will stop and remove the Docker container named `my-postgres-container`, and remove the Docker image named `postgres`.
 
 ## Specific Trainings
