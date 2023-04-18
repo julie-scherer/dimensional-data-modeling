@@ -2,8 +2,8 @@
 This week is the code we'll be using for dimensional data modeling. It contains data for every NBA game and player for the last 15ish years!
 
 Generally you will need (specific instructions below):
-- Postgres installed 
-- A database management environment (DataGrip, DBeaver, VS Code with extensions) that allows you to edit SQL & visualize tables
+- Postgres installed locally
+- A database management environment (DataGrip, DBeaver, VS Code with extensions, etc.) that allows you to edit SQL & visualize tables
 
 ## Base Data Model (getting started)
 
