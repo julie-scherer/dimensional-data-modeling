@@ -34,6 +34,7 @@ SELECT
                     ELSE 'bad' END)::scorer_class
              ELSE ls.scoring_class
          END as scoring_class,
+         ts.season IS NOT NULL as is_active,
          1998 AS current_season
 
     FROM last_season ls

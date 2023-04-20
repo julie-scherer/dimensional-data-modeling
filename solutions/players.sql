@@ -19,6 +19,7 @@
      draft_number TEXT,
      seasons season_stats[],
      scoring_class scorer_class,
+     is_active BOOLEAN,
      current_season INTEGER,
      PRIMARY KEY (player_name, current_season)
  );
