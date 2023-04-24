@@ -129,3 +129,7 @@ dmypy.json
 .pyre/
 
 dump.sql
+
+# Personal workspace files
+.idea/*
+.vscode/*
