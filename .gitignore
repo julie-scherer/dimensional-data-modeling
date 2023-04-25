@@ -130,5 +130,9 @@ dmypy.json
 
 dump.sql
 
+# Personal workspace files
+.idea/*
+.vscode/*
+
 _**/
 .DS_Store
