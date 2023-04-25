@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 dump.sql
+
+_**/
+.DS_Store
