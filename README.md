@@ -1,4 +1,6 @@
-## :rocket: Create cumulative actors table and slowly changing dimension in PostgreSQL
+## :rocket: Dimensional Data Modeling
+
+This repository uses data on actor films to generate a cumulative table and analyze slowly changing dimensions in a PostgreSQL database running inside Docker.
 
 ### :information_source: Prerequisites 
 * [Docker](https://docs.docker.com/get-docker/) installed
