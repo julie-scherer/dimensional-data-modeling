@@ -10,3 +10,8 @@ down:
 	docker stop my-postgres-container \
     && docker rm my-postgres-container \
     && docker rmi my-postgres-image
+
+.PHONY: homework
+homework: up
+	chmod +x scripts/run-homework.sh
+	./scripts/run-homework.sh

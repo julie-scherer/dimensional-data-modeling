@@ -2,6 +2,9 @@ FROM postgres:latest
 
 ARG CONTAINER_PORT=${CONTAINER_PORT}
 
+# This copied the files inside the homework/your_username/ folder
+COPY homework/*/ /docker-entrypoint-initdb.d/homework/
+
 # This copies the data.dump file from the build context to the /docker-entrypoint-initdb.d/ directory in the container image.
 # This dir will used by the Postgres image to run any scripts that should be executed when the container is started for the first time.
 COPY data.dump /docker-entrypoint-initdb.d/
