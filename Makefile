@@ -11,7 +11,7 @@ down:
     && docker rm my-postgres-container \
     && docker rmi my-postgres-image
 
-.PHONY: homework
-homework: up
-	chmod +x scripts/run-homework.sh
-	./scripts/run-homework.sh
+.PHONY: sql
+sql: up
+	chmod +x scripts/run-queries.sh
+	./scripts/run-queries.sh

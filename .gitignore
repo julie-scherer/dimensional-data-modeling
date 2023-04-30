@@ -136,3 +136,6 @@ dump.sql
 
 _**/
 .DS_Store
+
+notes/
+solutions/
