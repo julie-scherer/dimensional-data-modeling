@@ -94,23 +94,3 @@ To connect DBeaver to the Postgres instance running in Docker, you can follow th
     Once you have filled in these properties, click "Test Connection" to make sure that DBeaver can connect to the database.
 
 3. If the test connection is successful, click "Finish" to save the connection. You should now be able to use DBeaver to manage your PostgreSQL database running in Docker.
-
-## Docker Compose Setup
-
-### Prerequisites
- * [Install Docker](https://docs.docker.com/get-docker)
- * [Install Docker Compose](https://docs.docker.com/compose/install/#installation-scenarios)
-
-**Note:** This is an **alternative** to the setup above using [Dockerfile, bash and DBeaver](#rocket-run-dockerfile-in-shell-script--connect-to-dbeaver). You do **not** need both setups. 
-
-Once you have Docker and Docker Compose installed, you can open a terminal in the directory where you cloned this repo and run:
-
-```bash
-cp example.env .env # Edit the password in this file if you want
-docker compose up -d
-docker exec -it postgres bash # This will create an interactive shell for you within docker
-psql -U ${POSTGRES_USER} ${POSTGRES_SCHEMA} < /bootcamp/data.dump
-```
-Congratulations :tada:! as long as your compose stack is running you should be able to connect to your data exploration tool now
-
-## Specific Trainings
