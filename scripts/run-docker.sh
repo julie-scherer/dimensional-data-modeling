@@ -44,11 +44,11 @@ DOCKER_IP=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{
 DOCKER_PORT=$(docker port $DOCKER_CONTAINER)
 echo "Container $DOCKER_CONTAINER running! Forwarding connections from $DOCKER_PORT"
 
-# (optional) save a dump of the postgres db running inside the Docker container to a file named "dump.sql"
-# you can then import the SQL script into any database management tool you'd like
-docker exec ${DOCKER_CONTAINER} \
-    pg_dump -U postgres postgres > dump.sql
+# # (optional) save a dump of the postgres db running inside the Docker container to a file named "dump.sql"
+# # you can then import the SQL script into any database management tool you'd like
+# docker exec ${DOCKER_CONTAINER} \
+#     pg_dump -U postgres postgres > dump.sql
 
-# (optional) now that the container is running, execute the psql command inside the container
-docker exec -it ${DOCKER_CONTAINER} \
-    psql -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+# # (optional) now that the container is running, execute the psql command inside the container
+# docker exec -it ${DOCKER_CONTAINER} \
+#     psql -U ${POSTGRES_USER} -d ${POSTGRES_DB}
