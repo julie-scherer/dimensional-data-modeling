@@ -1,6 +1,10 @@
 ## :rocket: Dimensional Data Modeling
 
-This repository uses data on actor films to generate a cumulative table and analyze slowly changing dimensions in a PostgreSQL database running inside Docker.
+This repository provides a flexible solution for loading data into a Docker container running PostgreSQL and executing SQL queries on that dataset. By default, it uses data on actor films to generate a cumulative table and analyze slowly changing dimensions in a PostgreSQL database running inside Docker. However, the included `data.dump` file and SQL scripts in the `queries/` folder can be easily replaced with your own data source and queries.
+
+:star: If you want to use a different dataset or run different queries, you can modify this repository by replacing the `data.dump` file with your own data source, and replacing the SQL scripts in the `queries/` directory with your own queries. Once you've made these changes, you can quickly spin up a Postgres database and your tables in a Docker container using Docker Compose. :star:
+
+
 
 ### :information_source: Prerequisites 
  * [Install Docker](https://docs.docker.com/get-docker)
